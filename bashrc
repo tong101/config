@@ -30,6 +30,9 @@ fi
 
 alias gca="git commit --amend"
 alias gc="git commit"
+alias gpm="git push review HEAD:refs/for/master"
+alias grm="git fetch; git rebase origin/master" 
+alias ggn="git grep -n"
 
 #ntpdate pool.ntp.org 2>/dev/null 1>&2 &
 
@@ -64,12 +67,7 @@ gfc()
    gitclear
 }
 
-# Ubuntu 12.04 or less git-prompt.sh location
-#source /etc/bash_completion.d/git
-# Ubuntu 13.04 and higher
-# source /etc/bash_completion.d/git-prompt
-# MacOSX git-prompt.sh location
-source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+source /etc/bash_completion.d/git-prompt
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;35m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ '
 
 # enable color support of ls and also add handy aliases
@@ -106,6 +104,4 @@ fi
 #if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 #    . /etc/bash_completion
 #fi
-
-# Fix bpython "No module named configureparser"
-export PYTHONPATH=/Library/Python/2.7/site-packages/:$PYTHONPATH
+export GPG_TTY=$(tty)
