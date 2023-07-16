@@ -1,4 +1,4 @@
-# config
+# config files
 This repo includes all the configuration files e.g.
 - vimrc
 - tmux.conf
